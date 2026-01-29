@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "melbourne",
+  "version": "${version}",
+  "name": "Mint",
+  "description": "A utility mod for 1.21.8",
+  "authors": [],
+  "contact": {},
+  "environment": "client",
+  "accessWidener" : "melbourne.accesswidener",
+  "icon": "assets/melbourne/icon/icon.png",
+  "entrypoints": {
+    "client": [
+      "net.melbourne.Melbourne"
+    ]
+  },
+  "mixins": [
+    "melbourne.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
