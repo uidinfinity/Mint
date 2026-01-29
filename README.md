@@ -6,7 +6,8 @@
 
 <h1>Info</h1>
 <div align="left">
-cxiy kinda hot... idk... *blushes and slowly and softly grabs and strokes thigh*
+there was an unfunny description here and I removed
+it, but the client is bullshit.
 <div align="center">
 <h1>Requirements</h1>
 <div align="left">
