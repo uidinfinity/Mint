@@ -69,7 +69,8 @@ public class AutoMineFeature extends Feature {
 
     @SubscribeEvent
     public void onPlayerUpdate(PlayerUpdateEvent event) {
-        if (getNull() || mc.player.isCreative() || mc.interactionManager.getCurrentGameMode() == GameMode.CREATIVE) return;
+        if (getNull() || mc.player.isCreative() || mc.interactionManager.getCurrentGameMode() == GameMode.CREATIVE)
+            return;
         if (packetMine == null || !packetMine.isEnabled() || packetMine.isFeaturePaused()) return;
 
         tickCevPost();
@@ -342,7 +343,8 @@ public class AutoMineFeature extends Feature {
         double closest = Double.MAX_VALUE;
 
         for (PlayerEntity player : mc.world.getPlayers()) {
-            if (player == mc.player || !player.isAlive() || Managers.FRIEND.isFriend(player.getName().getString())) continue;
+            if (player == mc.player || !player.isAlive() || Managers.FRIEND.isFriend(player.getName().getString()))
+                continue;
             double dist = mc.player.squaredDistanceTo(player);
             if (dist > MathHelper.square(range.getValue().floatValue())) continue;
 
@@ -424,5 +426,6 @@ public class AutoMineFeature extends Feature {
         return mc.player.getEyePos().squaredDistanceTo(pos.toCenterPos()) > MathHelper.square(range.getValue().floatValue());
     }
 
-    private record Target(PlayerEntity player, int priority) {}
+    private record Target(PlayerEntity player, int priority) {
+    }
 }

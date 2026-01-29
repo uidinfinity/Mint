@@ -6,7 +6,6 @@ import net.melbourne.modules.Category;
 import net.melbourne.modules.Feature;
 import net.melbourne.modules.FeatureInfo;
 import net.melbourne.settings.types.NumberSetting;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Items;
 import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import net.minecraft.util.Hand;

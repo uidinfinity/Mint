@@ -58,6 +58,7 @@ import java.util.concurrent.Future;
 
 @FeatureInfo(name = "AutoCrystal", category = Category.Combat)
 public class AutoCrystalFeature extends Feature {
+
     private final BooleanSetting rotate = new BooleanSetting("Rotate", "Rotates to the place/break location", true);
     private final BooleanSetting gameLoop = new BooleanSetting("Gameloop", "Runs the ca on not only full ticks, but partial ticks aswell.", true);
     private final NumberSetting loopDelay = new NumberSetting("GameloopDelay", "Allows you to skip certain partial ticks.", 3.0, 0.0, 500.0);
@@ -206,7 +207,8 @@ public class AutoCrystalFeature extends Feature {
         if (getNull()) return;
         if (isExternalPause()) return;
 
-        if (godSync.getValue()) attackedCrystals.entrySet().removeIf(entry -> System.currentTimeMillis() - entry.getValue() > 1000);
+        if (godSync.getValue())
+            attackedCrystals.entrySet().removeIf(entry -> System.currentTimeMillis() - entry.getValue() > 1000);
 
         if (useThread.getValue()) {
             if (calculationTask == null || calculationTask.isDone()) startThread();
@@ -218,12 +220,10 @@ public class AutoCrystalFeature extends Feature {
             updateCrystalPos();
         }
 
-//        if (!BotManager.INSTANCE.isAuthed())
-//            System.exit(0);
-
         if (!gameLoop.getValue()) {
             if (crystalPos != null) doCrystal(crystalPos);
-            else if (baseplace.getValue() && obsidianPos != null && obbyTimer.hasTimeElapsed(250)) doBaseplace(obsidianPos);
+            else if (baseplace.getValue() && obsidianPos != null && obbyTimer.hasTimeElapsed(250))
+                doBaseplace(obsidianPos);
         }
 
         PacketMineFeature feature = Managers.FEATURE.getFeatureFromClass(PacketMineFeature.class);
@@ -285,7 +285,8 @@ public class AutoCrystalFeature extends Feature {
             if (!loopTimer.hasTimeElapsed(loopDelay.getValue().longValue())) return;
 
             if (crystalPos != null) doCrystal(crystalPos);
-            else if (baseplace.getValue() && obsidianPos != null && obbyTimer.hasTimeElapsed(250)) doBaseplace(obsidianPos);
+            else if (baseplace.getValue() && obsidianPos != null && obbyTimer.hasTimeElapsed(250))
+                doBaseplace(obsidianPos);
 
             loopTimer.reset();
         }
@@ -317,9 +318,6 @@ public class AutoCrystalFeature extends Feature {
             Renderer3D.renderBox(event.getContext(), box, ColorUtils.getGlobalColor(55));
             Renderer3D.renderBoxOutline(event.getContext(), box, ColorUtils.getGlobalColor());
         }
-
-//        if (!BotManager.INSTANCE.isAuthed())
-//            System.exit(0);
 
         Iterator<ConcurrentHashMap.Entry<BlockPos, Long>> fadeIt = crystalFadeMap.entrySet().iterator();
         while (fadeIt.hasNext()) {
@@ -467,7 +465,8 @@ public class AutoCrystalFeature extends Feature {
                         BlockPos pos = base.add(dx, dy, dz);
                         if (behindWall(pos)) continue;
 
-                        if (mc.player.getEyePos().distanceTo(pos.toCenterPos().add(0, -0.5, 0)) > range.getValue().floatValue()) continue;
+                        if (mc.player.getEyePos().distanceTo(pos.toCenterPos().add(0, -0.5, 0)) > range.getValue().floatValue())
+                            continue;
                         if (canTouch(pos.down())) continue;
                         if (t.hurtTime > hurtTime.getValue().intValue()) continue;
                         if (lite.getValue() && liteCheck(pos.toCenterPos().add(0, -0.5, 0), t.getPos())) continue;
@@ -485,7 +484,8 @@ public class AutoCrystalFeature extends Feature {
 
                         if (validPlace) {
                             if (face) {
-                                if (!forcePlace.getValue() || CrystalUtils.getTotalHealth(t) > forceMaxHealth.getValue().floatValue()) continue;
+                                if (!forcePlace.getValue() || CrystalUtils.getTotalHealth(t) > forceMaxHealth.getValue().floatValue())
+                                    continue;
                                 if (dmg < forceMin.getValue().floatValue()) continue;
                             } else {
                                 if (dmg < minAllowed) continue;
@@ -513,9 +513,11 @@ public class AutoCrystalFeature extends Feature {
                             if (isFacePlaceLevel && forcePlace.getValue() && CrystalUtils.getTotalHealth(t) > forceMaxHealth.getValue().floatValue())
                                 continue;
 
-                            if (mc.player.getEyePos().distanceTo(obbyPos.toCenterPos()) > baseplaceRange.getValue().floatValue()) continue;
+                            if (mc.player.getEyePos().distanceTo(obbyPos.toCenterPos()) > baseplaceRange.getValue().floatValue())
+                                continue;
                             if (!mc.world.getBlockState(obbyPos).isReplaceable()) continue;
-                            if (!mc.world.getBlockState(pos).isAir() && !mc.world.getBlockState(pos).isOf(Blocks.FIRE)) continue;
+                            if (!mc.world.getBlockState(pos).isAir() && !mc.world.getBlockState(pos).isOf(Blocks.FIRE))
+                                continue;
                             if (isEntityBlocking(obbyPos)) continue;
                             if (!baseplaceAir.getValue() && getHitResult(obbyPos) == null) continue;
                             if (dmg < minDamage.getValue().floatValue()) continue;
@@ -578,10 +580,6 @@ public class AutoCrystalFeature extends Feature {
     public void doCrystal(BlockPos pos) {
         if (getNull()) return;
         if (isExternalPause()) return;
-
-
-//        if (!BotManager.INSTANCE.isAuthed())
-//            System.exit(0);
 
         if (CrystalUtils.canPlaceCrystal(pos, false, true)) {
             if (mc.player.getMainHandStack().getItem() == Items.END_CRYSTAL || mc.player.getOffHandStack().getItem() == Items.END_CRYSTAL || findCrystalSlot() != -1)
@@ -648,9 +646,6 @@ public class AutoCrystalFeature extends Feature {
                     } catch (Exception ignored) {
                     }
 
-//                  if (!BotManager.INSTANCE.isAuthed())
-//                      System.exit(0);
-
                     mc.player.networkHandler.sendPacket(packet);
                     attackedCrystals.put(id, System.currentTimeMillis());
 
@@ -674,10 +669,6 @@ public class AutoCrystalFeature extends Feature {
             flag = false;
             return;
         }
-
-
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
 
         if ((!(mc.player.getMainHandStack().getItem() == Items.END_CRYSTAL || mc.player.getOffHandStack().getItem() == Items.END_CRYSTAL) &&
                 findCrystalSlot() == -1) || canTouch(pos.down()))

@@ -8,6 +8,7 @@ import net.melbourne.modules.FeatureInfo;
 import net.melbourne.modules.PlaceFeature;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
+
 import java.util.Collections;
 
 @FeatureInfo(name = "AntiMace", category = Category.Combat)

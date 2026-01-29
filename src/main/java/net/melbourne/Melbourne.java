@@ -17,7 +17,6 @@ public class Melbourne implements ClientModInitializer {
     public static final String NAME = "Mint";
     public static final String MOD_ID = "melbourne";
     public static final String MOD_VERSION = BuildConstants.MOD_VERSION;
-    public static final String MINECRAFT_VERSION = BuildConstants.MINECRAFT_VERSION;
     public static final String GIT_HASH = BuildConstants.GIT_HASH;
     public static final String GIT_REVISION = BuildConstants.GIT_REVISION;
 

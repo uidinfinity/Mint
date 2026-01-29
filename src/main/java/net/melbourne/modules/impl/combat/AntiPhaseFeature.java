@@ -28,6 +28,7 @@ import java.util.List;
 
 @FeatureInfo(name = "AntiPhase", category = Category.Combat)
 public class AntiPhaseFeature extends PlaceFeature {
+
     private final ModeSetting blockMode = new ModeSetting("Block", "Object to place", "Scaffolding", new String[]{"Scaffolding", "ItemFrames", "String", "Trapdoors", "Vines"});
 
     @SubscribeEvent

@@ -29,8 +29,5 @@ public class AntiCheatFeature extends Feature {
             mc.player.getInventory().updateItems();
             timer.reset();
         }
-
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
     }
 }

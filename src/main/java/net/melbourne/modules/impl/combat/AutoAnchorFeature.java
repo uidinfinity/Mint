@@ -97,9 +97,6 @@ public class AutoAnchorFeature extends Feature {
             return;
         }
 
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
-
         int r = (int) Math.ceil(range.getValue().floatValue());
         BlockPos base = mc.player.getBlockPos();
 

@@ -17,4 +17,5 @@ public class ColorFeature extends Feature {
     public NumberSetting rainbowSpeed = new NumberSetting("RainbowSpeed", "Speed of the rainbow", 10, 1, 20);
     public NumberSetting rainbowLength = new NumberSetting("RainbowLength", "Length of the rainbow wave", 8, 1, 20);
     public NumberSetting rainbowSaturation = new NumberSetting("RainbowSaturation", "Saturation of the rainbow", 1.0f, 0.0f, 1.0f);
+
 }

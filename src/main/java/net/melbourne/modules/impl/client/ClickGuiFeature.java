@@ -7,9 +7,9 @@ import net.melbourne.modules.FeatureInfo;
 import net.melbourne.settings.types.BooleanSetting;
 import org.lwjgl.glfw.GLFW;
 
-@FeatureInfo(name = "ClickGui", category = Category.Client, bind = GLFW.GLFW_KEY_RIGHT_SHIFT)
+@FeatureInfo(name = "ClickGui", category = Category.Client, bind = GLFW.GLFW_KEY_R)
 public class ClickGuiFeature extends Feature {
-    public BooleanSetting sounds= new BooleanSetting("Sounds", "Custom sounds when enabling or disabling modules.", true);
+    public BooleanSetting sounds= new BooleanSetting("Sounds", "Custom sounds when enabling or disabling modules.", false);
 
     @Override
     public void onEnable() {
@@ -21,8 +21,6 @@ public class ClickGuiFeature extends Feature {
 
         mc.setScreen(Melbourne.CLICK_GUI);
 
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
     }
 
     @Override
@@ -32,5 +30,4 @@ public class ClickGuiFeature extends Feature {
 
         mc.setScreen(null);
     }
-
 }

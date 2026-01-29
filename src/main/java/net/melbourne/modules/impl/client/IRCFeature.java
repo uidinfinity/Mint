@@ -41,5 +41,4 @@ public class IRCFeature extends Feature {
             return;
        setEnabled(true);
     }
-
 }

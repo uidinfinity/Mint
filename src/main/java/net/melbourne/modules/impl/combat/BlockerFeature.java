@@ -149,8 +149,7 @@ public class BlockerFeature extends PlaceFeature {
                         if (wantBroken || passiveCev) packetQueue.add(target);
                     }
                 }
-            }
-            else if (pos.equals(base)) {
+            } else if (pos.equals(base)) {
                 if (!state.isAir() && passiveCev) {
                     if (mc.world.getBlockState(target).isAir()) packetQueue.add(target);
                 }

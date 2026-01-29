@@ -31,4 +31,5 @@ public final class RendersFeature extends Feature {
     public String getRenderMode()         { return renderMode.getValue(); }
     public long getRenderTimeMillis()    { return renderTime.getValue().longValue(); }
     public Color getFriendColor()          { return friendColor.getColor(); }
+
 }

@@ -26,20 +26,17 @@ import net.minecraft.block.BedBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.packet.c2s.play.HandSwingC2SPacket;
 import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -294,9 +291,6 @@ public final class AutoBedFeature extends Feature {
             Services.INVENTORY.switchTo(slot, true, type);
         }
 
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
-
         if (rotate.getValue()) {
             float[] rotations = RotationUtils.getRotationsTo(mc.player.getEyePos(), pos.toCenterPos());
             float bedYaw = getDirectionYaw(dir);
@@ -352,9 +346,6 @@ public final class AutoBedFeature extends Feature {
                 return new BlockHitResult(hitVec, Direction.UP, below, false);
             }
         }
-
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
 
         for (Direction dir : Direction.values()) {
             if (dir == Direction.DOWN) continue;
@@ -489,9 +480,6 @@ public final class AutoBedFeature extends Feature {
         double exposure = getExposure(explosionPos, target, ignoreTerrain);
         double impact = (1.0 - (dist / (power * 2.0))) * exposure;
         float damage = (float) ((impact * impact + impact) / 2.0 * 7.0 * (double) power + 1.0);
-
-//      if (!BotManager.INSTANCE.isAuthed())
-//          System.exit(0);
 
         Difficulty difficulty = mc.world.getDifficulty();
         if (difficulty == Difficulty.EASY) damage = Math.min(damage / 2.0f + 1.0f, damage);

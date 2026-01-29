@@ -20,7 +20,7 @@ public class ScriptModule extends Feature {
     public ScriptModule(File file) {
         super();
         this.setName(file.getName().replace(".lua", ""));
-        this.setCategory(Category.Misc);
+        this.setCategory(Category.Scripts);
         this.scriptFile = file;
     }
 

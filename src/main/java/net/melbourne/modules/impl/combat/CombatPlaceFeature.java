@@ -12,7 +12,7 @@ import net.melbourne.settings.types.ModeSetting;
 import net.melbourne.settings.types.NumberSetting;
 import net.melbourne.utils.entity.EntityUtils;
 import net.minecraft.entity.player.PlayerEntity;
-// Reverted to the standard class for 1.21
+// reverted to the standard class for 1.21
 import net.minecraft.network.packet.s2c.play.EntityS2CPacket;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;

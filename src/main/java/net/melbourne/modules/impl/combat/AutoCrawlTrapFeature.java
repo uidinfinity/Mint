@@ -30,7 +30,8 @@ public class AutoCrawlTrapFeature extends PlaceFeature {
         BlockPos targetPos = getPlayerPos(target).up();
         double range = placeRange.getValue().doubleValue();
 
-        if (!mc.world.getBlockState(targetPos).isReplaceable() || mc.player.getEyePos().distanceTo(Vec3d.ofCenter(targetPos)) > range) return;
+        if (!mc.world.getBlockState(targetPos).isReplaceable() || mc.player.getEyePos().distanceTo(Vec3d.ofCenter(targetPos)) > range)
+            return;
 
         Slot obbySlot = Services.INVENTORY.findSlot(SearchLogic.OnlyHotbar, Items.OBSIDIAN, Items.ENDER_CHEST.canBeNested());
         if (obbySlot == null) return;

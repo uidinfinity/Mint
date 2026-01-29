@@ -66,7 +66,8 @@ public class AutoWebFeature extends PlaceFeature {
             webPos = webPos.up();
         }
 
-        if (!mc.world.getBlockState(webPos).isReplaceable() || mc.world.getBlockState(webPos).isOf(Blocks.COBWEB)) return;
+        if (!mc.world.getBlockState(webPos).isReplaceable() || mc.world.getBlockState(webPos).isOf(Blocks.COBWEB))
+            return;
         if (isEntityBlocking(webPos, target)) return;
 
         placeBlocks(Collections.singletonList(webPos), Items.COBWEB);

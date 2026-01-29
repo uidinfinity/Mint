@@ -16,6 +16,7 @@ import java.awt.*;
 
 @FeatureInfo(name = "Font", category = Category.Client)
 public class FontFeature extends Feature {
+
     public TextSetting name = new TextSetting("Name", "The name of the font that will be rendered.", "Tahoma");
     public NumberSetting size = new NumberSetting("Size", "The size of the custom font that will be rendered.", 18, 8, 48);
     public ModeSetting style = new ModeSetting("Style", "The style that will be used in the font's rendering.", "Plain", new String[]{"Plain", "Bold", "Italic", "BoldItalic"});

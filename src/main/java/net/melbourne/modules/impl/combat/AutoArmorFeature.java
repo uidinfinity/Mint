@@ -22,6 +22,7 @@ import net.minecraft.screen.slot.SlotActionType;
 
 @FeatureInfo(name = "AutoArmor", category = Category.Combat)
 public class AutoArmorFeature extends Feature {
+
     public ModeSetting health = new ModeSetting("Health", "The health priority to apply.", "Highest", new String[]{"Highest", "Lowest", "Any"});
     public BooleanSetting elytraPriority = new BooleanSetting("ElytraPriority", "Prioritizes elytra over armor pieces.", true);
     public BooleanSetting preserve = new BooleanSetting("Preserve", "Preserve low health armor to avoid it from breaking.", false);

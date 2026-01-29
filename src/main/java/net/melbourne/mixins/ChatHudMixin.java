@@ -51,6 +51,10 @@ public abstract class ChatHudMixin {
         Melbourne.EVENT_HANDLER.post(event);
     }
 
+    /**
+     * @author .
+     * @reason .
+     */
     @Overwrite
     public void render(DrawContext context, int currentTick, int mouseX, int mouseY, boolean focused) {
         BetterChatFeature feature = Managers.FEATURE.getFeatureFromClass(BetterChatFeature.class);
